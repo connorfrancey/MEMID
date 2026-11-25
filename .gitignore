@@ -1,0 +1,8 @@
+build/
+cmake-build-*/
+out/
+.idea/workspace.xml
+.vs/
+__pycache__/
+examples/csharp/bin/
+examples/csharp/obj/

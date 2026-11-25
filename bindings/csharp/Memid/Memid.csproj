@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- MEMID for .NET: writes a descriptor (.memid), custom metadata (.memidx), PE sections and Win32 resources in
+       managed code, with no native library. Produces byte-for-byte what the C++ library's serialize() does. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Memid</RootNamespace>
+    <AssemblyName>Memid</AssemblyName>
+    <Version>1.1.0</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Enum members name themselves -->
+
+  </PropertyGroup>
+</Project>

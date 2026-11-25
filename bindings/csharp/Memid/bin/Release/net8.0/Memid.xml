@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Memid</name>
+    </assembly>
+    <members>
+        <member name="T:Memid.MetadataFormat">
+            <summary>Payload format of a custom metadata entry.</summary>
+        </member>
+        <member name="T:Memid.MemidEntry">
+            <summary>One custom metadata entry: a reverse-domain namespace and its payload.</summary>
+        </member>
+        <member name="M:Memid.MemidEntry.#ctor(System.String,System.UInt16,System.Byte[],System.UInt16)">
+            <summary>One custom metadata entry: a reverse-domain namespace and its payload.</summary>
+        </member>
+        <member name="T:Memid.MemidCustomMetadata">
+            <summary>
+            A <c>.memidx</c> container (docs/CUSTOM_METADATA.md): developer metadata entries. <see cref="M:Memid.MemidCustomMetadata.Serialize"/> writes it
+            as the C++ <c>memid::CustomMetadata::serialize</c> does; put the result in a <c>.memidx</c> section or a
+            <c>MEMIDX</c> RT_RCDATA resource. Several containers may follow one another in a section.
+            </summary>
+        </member>
+        <member name="P:Memid.MemidCustomMetadata.Magic">
+            <summary>The container's magic: "MEMIDX" CR LF.</summary>
+        </member>
+        <member name="P:Memid.MemidCustomMetadata.Entries">
+            <summary>The entries, in the order they are written.</summary>
+        </member>
+        <member name="M:Memid.MemidCustomMetadata.Add(System.String,Memid.MetadataFormat,System.Byte[])">
+            <summary>Adds an entry. </summary>
+            <exception cref="T:System.ArgumentException">A namespace that isn't 1-128 bytes of reverse-domain text.</exception>
+        </member>
+        <member name="M:Memid.MemidCustomMetadata.Add(System.String,Memid.MetadataFormat,System.String)">
+            <summary>Adds a text-format entry (UTF-8): JSON, TOML, XML or plain text.</summary>
+        </member>
+        <member name="M:Memid.MemidCustomMetadata.Serialize">
+            <summary>The container's bytes (empty when there are no entries).</summary>
+        </member>
+        <member name="T:Memid.ReleaseChannel">
+            <summary>Release channel of a build (descriptor offset 58).</summary>
+        </member>
+        <member name="T:Memid.Architecture">
+            <summary>CPU architecture (offset 60).</summary>
+        </member>
+        <member name="T:Memid.OperatingSystemId">
+            <summary>Operating system (offset 62).</summary>
+        </member>
+        <member name="T:Memid.BinaryFormat">
+            <summary>Binary format (offset 64).</summary>
+        </member>
+        <member name="T:Memid.Language">
+            <summary>Source language (offset 65).</summary>
+        </member>
+        <member name="T:Memid.Runtime">
+            <summary>Runtime the binary needs (offset 66).</summary>
+        </member>
+        <member name="T:Memid.Capabilities">
+            <summary>Declared functionality (offset 128).</summary>
+        </member>
+        <member name="T:Memid.MemidDescriptor">
+            <summary>
+            A MEMID 1.1 descriptor: the 428-byte identity of a binary (docs/MEMID_FORMAT.md). <see cref="M:Memid.MemidDescriptor.Serialize"/> writes it
+            as the C++ library's <c>memid::serialize</c> does; put the result in a <c>.memid</c> section or a <c>MEMID</c>
+            RT_RCDATA resource. Extensions are not written (none are defined yet).
+            </summary>
+        </member>
+        <member name="F:Memid.MemidDescriptor.Size">
+            <summary>Size of a 1.1 descriptor.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Magic">
+            <summary>The descriptor's magic: "MEMID" CR LF SUB.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.ModId">
+            <summary>The mod's permanent UUID (required, not empty).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.PublisherId">
+            <summary>The publisher's UUID (<see cref="F:System.Guid.Empty"/>: none).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Version">
+            <summary>Version (major, minor, patch; each 0..65535).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Channel">
+            <summary>Release channel.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Architecture">
+            <summary>Architecture.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.OperatingSystem">
+            <summary>Operating system.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.BinaryFormat">
+            <summary>Binary format.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Language">
+            <summary>Source language.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Runtime">
+            <summary>Runtime.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.BuildId">
+            <summary>One build of this version (<see cref="F:System.Guid.Empty"/>: none).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.BuildTime">
+            <summary>Build time (null: unknown).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.ToolchainId">
+            <summary>Compiler family and version, packed (16 bits each: family, major, minor, patch; 6 = .NET).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.GameId">
+            <summary>Game (1: Mirror's Edge 2008 PC; 0: none).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.GameVersionMin">
+            <summary>Lowest game version, packed major &lt;&lt; 24 | minor &lt;&lt; 16 | patch (0: no limit).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.GameVersionMax">
+            <summary>Highest game version, packed (0: no limit).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.InteropMin">
+            <summary>Lowest protocol version spoken (0: no limit).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.InteropMax">
+            <summary>Highest protocol version spoken (0: no limit).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Capabilities">
+            <summary>Declared functionality.</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.ProtocolFlags">
+            <summary>Protocol flags (bit 0: exports memid_identity_descriptor; bit 1: speaks MIRAGE's mod ABI).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Flags">
+            <summary>Flags (bit 0: debug build; bit 1: has custom metadata).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.ReverseDomain">
+            <summary>Reverse-domain id, e.g. <c>com.example.my-mod</c> (at most 96 bytes of UTF-8).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Name">
+            <summary>Display name (at most 64 bytes of UTF-8).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Publisher">
+            <summary>Publisher display name (at most 48 bytes of UTF-8).</summary>
+        </member>
+        <member name="P:Memid.MemidDescriptor.Homepage">
+            <summary>Homepage URL (at most 64 bytes of UTF-8).</summary>
+        </member>
+        <member name="M:Memid.MemidDescriptor.Serialize">
+            <summary>The 428 bytes. Text longer than its field is cut at a UTF-8 character boundary.</summary>
+            <exception cref="T:System.InvalidOperationException">No <see cref="P:Memid.MemidDescriptor.ModId"/>, or a version part over 65535.</exception>
+        </member>
+        <member name="M:Memid.MemidDescriptor.PackGameVersion(System.Int32,System.Int32,System.Int32)">
+            <summary>Packs a game version the way the descriptor stores it.</summary>
+        </member>
+        <member name="T:Memid.MemidResources">
+            <summary>
+            A Win32 resource file (<c>.res</c>) holding MEMID data as RT_RCDATA resources named <c>MEMID</c> and
+            <c>MEMIDX</c>, which MEMID readers look for in a PE that has no <c>.memid</c> / <c>.memidx</c> section. For
+            binaries that can't get a section of their own, such as .NET apps: write the file before the build and reference it
+            from the project (<c>&lt;Win32Resource&gt;</c>). It replaces the resources the SDK would generate (version, icon,
+            manifest), so a project that needs those adds them to the same file with its own resource compiler.
+            </summary>
+        </member>
+        <member name="M:Memid.MemidResources.WriteRes(System.Byte[],System.Byte[])">
+            <summary>The <c>.res</c> bytes: the identity and, when given, the custom metadata.</summary>
+        </member>
+        <member name="T:Memid.PeSections">
+            <summary>
+            Adds, replaces and removes a read-only data section in a PE image (an EXE or DLL as bytes), for tools that patch a
+            binary they didn't build: a <c>.memidx</c> describing the patch, or a <c>.memid</c> in a binary of one's own.
+            <para>
+            Only the <b>last</b> section can be replaced or removed, and a new section goes last. A tool that grows its own
+            last section (a code cave) removes the MEMID section first, patches, then sets it again.
+            </para>
+            <para>
+            Refused, with <see cref="T:System.InvalidOperationException"/>: a signed image (its certificate table would no longer
+            match), data after the last section (an overlay the new section would land behind), and a section table with no
+            room for another header.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Memid.PeSections.ReadOnlyData">
+            <summary>Initialized data, readable: what a MEMID section is.</summary>
+        </member>
+        <member name="M:Memid.PeSections.Read(System.Byte[],System.String)">
+            <summary>The bytes of section <paramref name="name"/>, or null when the image has none.</summary>
+        </member>
+        <member name="M:Memid.PeSections.Set(System.Byte[],System.String,System.Byte[],System.UInt32)">
+            <summary>The image with section <paramref name="name"/> holding <paramref name="data"/>: replaced when it is the
+            last section, added after the last one when the image has none.</summary>
+        </member>
+        <member name="M:Memid.PeSections.Remove(System.Byte[],System.String)">
+            <summary>The image without section <paramref name="name"/> (unchanged when it has none).</summary>
+            <exception cref="T:System.InvalidOperationException">The section isn't the last one.</exception>
+        </member>
+        <member name="M:Memid.PeSections.Add(System.Byte[],System.String,System.Byte[],System.UInt32)">
+            <summary>The image with a new last section <paramref name="name"/> holding <paramref name="data"/>.</summary>
+            <exception cref="T:System.InvalidOperationException">The image already has that section, is signed, has an overlay, or
+            has no room for another section header.</exception>
+        </member>
+    </members>
+</doc>

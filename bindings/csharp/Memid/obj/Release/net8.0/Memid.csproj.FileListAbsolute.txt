@@ -1,0 +1,14 @@
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\bin\Release\net8.0\Memid.deps.json
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\bin\Release\net8.0\Memid.dll
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\bin\Release\net8.0\Memid.pdb
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\bin\Release\net8.0\Memid.xml
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.AssemblyInfoInputs.cache
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.AssemblyInfo.cs
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.csproj.CoreCompileInputs.cache
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.dll
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\refint\Memid.dll
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.xml
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.pdb
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\ref\Memid.dll
+C:\dev\cpp\lib\MEMID\bindings\csharp\Memid\obj\Release\net8.0\Memid.csproj.Up2Date

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "+TFguQx/pQQ=",
+  "success": true,
+  "projectFilePath": "C:\\dev\\cpp\\lib\\MEMID\\bindings\\csharp\\Memid\\Memid.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cryptigo\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.34\\microsoft.netcore.app.ref.8.0.34.nupkg.sha512",
+    "C:\\Users\\Cryptigo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.34\\microsoft.windowsdesktop.app.ref.8.0.34.nupkg.sha512",
+    "C:\\Users\\Cryptigo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.34\\microsoft.aspnetcore.app.ref.8.0.34.nupkg.sha512"
+  ],
+  "logs": []
+}
